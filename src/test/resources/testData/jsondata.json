@@ -1,19 +1,23 @@
 {
   "NewUsers": {
       "name": "mahTest",
-      "email": "mah6Test",
-      "password": "mah7Test",
-      "day" : 1,
+      "email": "mah14Test",
+      "password": "12345678",
+      "day" : "1",
       "month" : "May",
-      "year" : 2000,
+      "year" : "2000",
       "firstName": "John",
       "lastName": "Smith",
       "address": "1600 Amphitheatre Parkway, Mountain View, CA 94043",
       "country": "United States",
       "city": "Mountain View",
       "state": "CA",
-      "zip": 94043  ,
+      "zip": "94043"  ,
       "phone": "(650) 253-0000"
+    },
+    "InvalidUsers": {
+      "email": "errorEmail",
+      "password": "10203040"
     }
 
 

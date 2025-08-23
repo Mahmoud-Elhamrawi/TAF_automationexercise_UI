@@ -1,30 +1,23 @@
 package TestCases;
 
 
-import Drivers.DriverManager;
-import Pages.P01;
+import Pages.P01_LandingPage;
+import Pages.P05_HomePage;
 import TestNGListener.TestNGListen;
-import Utils.BrowserActions.BrowserAction;
-import Utils.DataUtil.ReadJsonFiles;
-import Utils.LogUtil.LogClass;
 import io.qameta.allure.Description;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
 import static Utils.DataUtil.ReadJsonFiles.getJsonKey;
 import static Utils.DataUtil.ReadPropertiesFiles.getProperty;
-import static Utils.UtilPackage.UtilClass.getTimestamp;
 
 @Listeners(TestNGListen.class)
-public class TC01 {
-    WebDriver driver;
-    ReadJsonFiles readJsonFiles;
+public class TC01_RegisterTC extends TestBase {
 
     @Description("validate user can successfully sign up with valid data")
-    @Test
-    public void testTC() {
+    @Test(priority = 1)
+    public void registerTC() {
 
-        new P01(driver)
+        new P01_LandingPage(driver)
                 .validateLandingPage(getProperty("LandingPageTitle"), getProperty("landingPage"))
                 .validateHomePage(getProperty("HomeItem"))
                 .clickOnSignInButton(getProperty("loginItem"))
@@ -51,37 +44,20 @@ public class TC01 {
                 .clickOnSubmitButton()
                 .validateAccountCreatedText("Account Created!")
                 .clickOnContinueButton()
-                .validateHomePage("Logged in as mahTest")
+                .validateHomePage("Logged in as mahTest");
+
+
+    }
+
+
+    @Description("validate user can delete account")
+    @Test(priority = 2, dependsOnMethods = "registerTC")
+    public void deleteAccount() {
+        new P05_HomePage(driver)
                 .deleteItem("5")
                 .validateDeletedText("Account Deleted!.")
                 .clickOnContinueButton();
-    }
-
-    //configuration
-    @BeforeMethod
-    public void setupTC() {
-        //send browser
-        driver = DriverManager.createDriver(getProperty("browserName"));
-        LogClass.info("driver created on : " + getProperty("browserName"));
-
-        //open driver
-        new P01(driver)
-                .openLandingPage(getProperty("landingPage"));
-        LogClass.info("driver opened : " + getProperty("landingPage"));
-
 
     }
-
-    @BeforeClass
-    public void settingUpTC() {
-        readJsonFiles = new ReadJsonFiles("jsondata");
-        LogClass.info("json file loaded");
-    }
-
-    @AfterMethod
-    public void tearDownTC() {
-        BrowserAction.closeBrowser(driver);
-    }
-
 
 }

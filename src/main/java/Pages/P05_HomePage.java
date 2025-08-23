@@ -25,9 +25,17 @@ public class P05_HomePage {
     @Step("click on Delete button")
     public P04_AccountConfirmedPage deleteItem(String item) {
         ElementAction.click(driver, itemsInHeader(item));
-        LogClass.info("item deleted  :",item);
+        LogClass.info("delete button clicked");
         return new P04_AccountConfirmedPage(driver);
     }
+
+    @Step("click on logout button")
+    public P05_HomePage clickOnLogOutButton() {
+        ElementAction.click(driver, itemsInHeader("4"));
+        LogClass.info("logout button clicked");
+        return this;
+    }
+
 
     //verifications
     public P05_HomePage validateHomePage(String expectedItem) {

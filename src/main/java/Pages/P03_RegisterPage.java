@@ -8,10 +8,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class P03 {
+public class P03_RegisterPage {
     private final WebDriver driver;
 
-    public P03(WebDriver driver) {
+    public P03_RegisterPage(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -36,105 +36,105 @@ public class P03 {
 
     //methods actions
     @Step("select title")
-    public P03 selectTitle() {
+    public P03_RegisterPage selectTitle() {
         ElementAction.click(driver, selectTitle);
         LogClass.info("title selected");
         return this;
     }
 
     @Step("enter password")
-    public P03 enterPassword(String password) {
+    public P03_RegisterPage enterPassword(String password) {
         ElementAction.type(driver, password_inp, password);
         LogClass.info("password entered : ", password);
         return this;
     }
 
     @Step("select days")
-    public P03 selectDays(String days) {
+    public P03_RegisterPage selectDays(String days) {
         new Select(driver.findElement(selectOptionDays)).selectByValue("1");
         LogClass.info("days selected : ", days);
         return this;
     }
 
     @Step("select month")
-    public P03 selectMonth(String month) {
+    public P03_RegisterPage selectMonth(String month) {
         new Select(driver.findElement(selectOptionMonth)).selectByValue("1");
         LogClass.info("month selected : ", month);
         return this;
     }
 
     @Step("select year")
-    public P03 selectYear(String year) {
+    public P03_RegisterPage selectYear(String year) {
         new Select(driver.findElement(selectOptionYear)).selectByValue("2000");
         LogClass.info("year selected : ", year);
         return this;
     }
 
     @Step("check newsletter")
-    public P03 checkNewsletter() {
+    public P03_RegisterPage checkNewsletter() {
         ElementAction.click(driver, checkNewsLetter);
         LogClass.info("newsletter checked");
         return this;
     }
 
     @Step("check offer")
-    public P03 checkOffer() {
+    public P03_RegisterPage checkOffer() {
         ElementAction.click(driver, checkOffer);
         LogClass.info("offer checked");
         return this;
     }
 
     @Step("enter first name")
-    public P03 enterFirstName(String firstName) {
+    public P03_RegisterPage enterFirstName(String firstName) {
         ElementAction.type(driver, firstName_inp, firstName);
         LogClass.info("first name entered : ", firstName);
         return this;
     }
 
     @Step("enter last name")
-    public P03 enterLastName(String lastName) {
+    public P03_RegisterPage enterLastName(String lastName) {
         ElementAction.type(driver, lastName_inp, lastName);
         LogClass.info("last name entered : ", lastName);
         return this;
     }
 
     @Step("enter address")
-    public P03 enterAddress(String address) {
+    public P03_RegisterPage enterAddress(String address) {
         ElementAction.type(driver, address_inp, address);
         LogClass.info("address entered : ", address);
         return this;
     }
 
     @Step("select country")
-    public P03 selectCountry(String country) {
+    public P03_RegisterPage selectCountry(String country) {
         new Select(driver.findElement(country_SelectOption)).selectByValue(country);
         LogClass.info("country selected : ", country);
         return this;
     }
 
     @Step("enter state")
-    public P03 enterState(String state) {
+    public P03_RegisterPage enterState(String state) {
         ElementAction.type(driver, state_Inp, state);
         LogClass.info("state entered : ", state);
         return this;
     }
 
     @Step("enter city")
-    public P03 enterCity(String city) {
+    public P03_RegisterPage enterCity(String city) {
         ElementAction.type(driver, city_Inp, city);
         LogClass.info("city entered : ", city);
         return this;
     }
 
     @Step("enter zip code")
-    public P03 enterZipCode(String zipCode) {
+    public P03_RegisterPage enterZipCode(String zipCode) {
         ElementAction.type(driver, zipCode_Inp, zipCode);
         LogClass.info("zip code entered : ", zipCode);
         return this;
     }
 
     @Step("enter mobile number")
-    public P03 enterMobileNumber(String mobileNumber) {
+    public P03_RegisterPage enterMobileNumber(String mobileNumber) {
         ElementAction.type(driver, mobileNumber_Inp, mobileNumber);
         LogClass.info("mobile number entered : ", mobileNumber);
         return this;
@@ -148,7 +148,7 @@ public class P03 {
     }
 
     //validations
-    public P03 validateFormHeader(String expectedText) {
+    public P03_RegisterPage validateFormHeader(String expectedText) {
         ValidationClass.assertText(ElementAction.getText(driver, formHeader_h2), expectedText, "form header");
         return this;
     }

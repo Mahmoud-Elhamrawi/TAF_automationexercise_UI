@@ -16,6 +16,7 @@ public class TestNGListen implements IExecutionListener, ITestListener, IInvoked
 
     File allurePath = new File("test-output/target/allure-results/");
     File logPath = new File("test-output/Logs/");
+    File screenshotPath = new File("test-output/screenshots/");
 
     @Override
     public void onExecutionStart() {
@@ -28,6 +29,8 @@ public class TestNGListen implements IExecutionListener, ITestListener, IInvoked
         FileClass.deleteFolder(logPath);
         LogClass.info("Previous Log files  deleted");
 
+        FileClass.deleteFolder(screenshotPath);
+        LogClass.info("Previous Screenshot files  deleted");
     }
 
     @Override

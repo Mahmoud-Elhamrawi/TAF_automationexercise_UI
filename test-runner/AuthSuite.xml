@@ -1,0 +1,26 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="AuthSuite" verbose="1">
+    <test name="Auth">
+        <classes>
+            <class name="TestCases.TC01_RegisterTC">
+                <methods>
+                    <include name="registerTC"/>
+                </methods>
+            </class>
+
+            <class name="TestCases.TC02_LoginTC">
+                <methods>
+                    <include name="validateLoginTC"/>
+                </methods>
+            </class>
+
+            <class name="TestCases.TC03_LogoutTC">
+                <methods>
+                    <include name="logOutTC"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

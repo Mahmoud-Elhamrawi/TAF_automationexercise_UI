@@ -8,12 +8,12 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class P01 {
+public class P01_LandingPage {
     //Variables
     private WebDriver driver;
 
     //constructor
-    public P01(WebDriver driver) {
+    public P01_LandingPage(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -27,22 +27,22 @@ public class P01 {
 
     //methods actions
     @Step("open landing page")
-    public P01 openLandingPage(String url) {
+    public P01_LandingPage openLandingPage(String url) {
         BrowserAction.openBrowser(driver, url);
         return this;
     }
 
     @Step("click on sign in button")
-    public P02 clickOnSignInButton(String item) {
+    public P02_Login_RegisterPage clickOnSignInButton(String item) {
         ElementAction.click(driver, getItemListInHeader(item));
         LogClass.info("sign in button clicked : ", item);
-        return new P02(driver);
+        return new P02_Login_RegisterPage(driver);
     }
 
 
     //validations
     @Step("validate landing page")
-    public P01 validateLandingPage(String expectedTitle, String expectedURL) {
+    public P01_LandingPage validateLandingPage(String expectedTitle, String expectedURL) {
         ValidationClass.assertTitle(BrowserAction.getTitle(driver), expectedTitle, "landing page title");
         ValidationClass.assertUrl(BrowserAction.getCurrentUrl(driver), expectedURL, "landing page url");
         LogClass.info("landing page title validated : ", expectedTitle);
@@ -50,7 +50,7 @@ public class P01 {
     }
 
     @Step("validate home page open ")
-    public P01 validateHomePage(String expectedItem) {
+    public P01_LandingPage validateHomePage(String expectedItem) {
         ValidationClass.assertText(ElementAction.getText(driver, getItemListInHeader(expectedItem)), expectedItem, "home page open");
         LogClass.info("home page open validated : ", expectedItem);
         return this;
