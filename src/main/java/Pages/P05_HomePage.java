@@ -39,7 +39,7 @@ public class P05_HomePage {
 
     //verifications
     public P05_HomePage validateHomePage(String expectedItem) {
-        ValidationClass.assertText(ElementAction.getText(driver, itemsInHeader("10")), expectedItem, "home page open");
+        ValidationClass.assertTrueText(ElementAction.getText(driver, itemsInHeader("10")), expectedItem, "home page open");
         return this;
     }
 

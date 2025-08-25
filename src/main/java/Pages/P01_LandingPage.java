@@ -21,7 +21,7 @@ public class P01_LandingPage {
 
 
     public By getItemListInHeader(String item) {
-        return By.xpath("//div[contains(@class,'shop-menu')]//ul/li/a[.=' " + item + "']");
+        return By.xpath("//div[contains(@class,'shop-menu')]//ul/li/a[text()=' " + item + "']");
     }
 
 
@@ -51,7 +51,7 @@ public class P01_LandingPage {
 
     @Step("validate home page open ")
     public P01_LandingPage validateHomePage(String expectedItem) {
-        ValidationClass.assertText(ElementAction.getText(driver, getItemListInHeader(expectedItem)), expectedItem, "home page open");
+        ValidationClass.assertTrueText(ElementAction.getText(driver, getItemListInHeader(expectedItem)), expectedItem, "home page open");
         LogClass.info("home page open validated : ", expectedItem);
         return this;
     }

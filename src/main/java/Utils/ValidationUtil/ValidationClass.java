@@ -11,7 +11,7 @@ public class ValidationClass {
     }
 
     //assert on text
-    public static void assertText(String actualText, String expectedText, String message) {
+    public static void assertTrueText(String actualText, String expectedText, String message) {
         Assert.assertEquals(actualText, expectedText, message);
     }
 
@@ -23,6 +23,16 @@ public class ValidationClass {
     //assert on visibility
     public static void assertVisibility(boolean condition, String message) {
         Assert.assertTrue(condition);
+    }
+
+    //assert empty string
+    public static void assertEmptyValue(boolean condition, String message) {
+        Assert.assertFalse(condition, message);
+    }
+
+    //assert on text
+    public static void assertTrueText(boolean condition , String message) {
+        Assert.assertTrue(condition, message);
     }
 
 

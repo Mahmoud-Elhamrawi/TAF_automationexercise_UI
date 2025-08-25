@@ -149,7 +149,7 @@ public class P03_RegisterPage {
 
     //validations
     public P03_RegisterPage validateFormHeader(String expectedText) {
-        ValidationClass.assertText(ElementAction.getText(driver, formHeader_h2), expectedText, "form header");
+        ValidationClass.assertTrueText(ElementAction.getText(driver, formHeader_h2), expectedText, "form header");
         return this;
     }
 

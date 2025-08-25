@@ -77,19 +77,19 @@ private final By errorMessage_P = By.cssSelector("div[class=\"login-form\"] p");
 
     //Validations
     public P02_Login_RegisterPage validateHeaderOfSighUpForm(String expectedText) {
-        ValidationClass.assertText(ElementAction.getText(driver, formRegister_h2), expectedText, "header of sign up form");
+        ValidationClass.assertTrueText(ElementAction.getText(driver, formRegister_h2), expectedText, "header of sign up form");
         LogClass.info("header of sign up form validated : ", expectedText);
         return this;
     }
 
     public P02_Login_RegisterPage validateHeaderOfLoginForm(String expectedText) {
-        ValidationClass.assertText(ElementAction.getText(driver, formLogin_h2), expectedText, "header of login form");
+        ValidationClass.assertTrueText(ElementAction.getText(driver, formLogin_h2), expectedText, "header of login form");
         LogClass.info("header of login form validated : ", expectedText);
         return this;
     }
 
     public P02_Login_RegisterPage validateErrorMessage(String expectedText) {
-        ValidationClass.assertText(ElementAction.getText(driver, errorMessage_P), expectedText, "error message");
+        ValidationClass.assertTrueText(ElementAction.getText(driver, errorMessage_P), expectedText, "error message");
         LogClass.info("error message validated : ", expectedText);
         return this;
     }
